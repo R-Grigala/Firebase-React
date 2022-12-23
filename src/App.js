@@ -3,8 +3,8 @@ import { useState,  } from 'react';
 // import { app, database } from './firebaseConfig';
 import { 
   getAuth,
-  signInWithEmailAndPassword,
-  // createUserWithEmailAndPassword 
+  // signInWithEmailAndPassword,
+  createUserWithEmailAndPassword 
 } from 'firebase/auth';
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
   }
 
   const handleSubmit = () => {
-    signInWithEmailAndPassword(auth, data.email, data.password)
+    createUserWithEmailAndPassword(auth, data.email, data.password)
     .then((response) => {
       console.log(response.user)
     })
