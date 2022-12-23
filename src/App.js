@@ -1,17 +1,15 @@
 import './App.css';
 import { useState,  } from 'react';
-import { app, database } from './firebaseConfig';
+// import { app, database } from './firebaseConfig';
 import { 
   getAuth,
   signInWithEmailAndPassword,
-  createUserWithEmailAndPassword 
+  // createUserWithEmailAndPassword 
 } from 'firebase/auth';
-import { collection, addDoc } from 'firebase/firestore';
 
 function App() {
 
   const [data, setData] = useState({
-    name : '',
     email: '',
     password: ''
   })
@@ -25,18 +23,17 @@ function App() {
   }
 
   const handleSubmit = () => {
-
+    signInWithEmailAndPassword(auth, data.email, data.password)
+    .then((response) => {
+      console.log(response.user)
+    })
+    .catch((err) => {
+      alert(err.message)
+    })
   }
 
   return (
     <div className="App-header">
-      <input 
-        placeholder="Name" 
-        name="name" 
-        type="text"
-        className="input-fields"
-        onChange={event => handleInputs(event)}
-      />
       <input 
         placeholder="Email" 
         name="email" 
@@ -52,7 +49,7 @@ function App() {
         onChange={event => handleInputs(event)}
         />
 
-      <button onClick={handleSubmit}>Add data</button>
+      <button onClick={handleSubmit}>Sing Up</button>
     </div>
   );
 }
