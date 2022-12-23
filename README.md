@@ -8,3 +8,6 @@ In the project directory, you can run:
 
 ## Learn More
 
+## youtube video // Time { 1:56:33 }
+
+    https://www.youtube.com/watch?v=fgdpvwEWJ9M
