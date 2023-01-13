@@ -9,19 +9,19 @@ import {
 
 import { 
   collection, 
-  addDoc 
+  addDoc
 } from 'firebase/firestore';
 
 function App() {
 
   const [data, setData] = useState({
-    name:'',
+    name: '',
     email: '',
     password: ''
   })
 
   const auth = getAuth();
-  const dbInstance = collection(database, 'users')
+  const dbInstance = collection(database, 'users');
 
   const handleInputs = (event) => {
     let inputs = {[event.target.name] : event.target.value}
@@ -40,11 +40,9 @@ function App() {
     // })
 
 
-    addDoc(dbInstance, data)
-    .then(() => {
+    addDoc(dbInstance, data).then(() => {
       alert('Data Sent')
-    })
-    .catch((err) => {
+    }).catch((err) => {
       alert(err.message)
     })
 
