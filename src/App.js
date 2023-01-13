@@ -1,9 +1,9 @@
 import './App.css';
 import { useState,  } from 'react';
-// import { app, database } from './firebaseConfig';
+import { app, database } from './firebaseConfig';
 import { 
   getAuth,
-  // signInWithEmailAndPassword,
+  signInWithEmailAndPassword,
   createUserWithEmailAndPassword 
 } from 'firebase/auth';
 
