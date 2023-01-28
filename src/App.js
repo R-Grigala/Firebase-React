@@ -2,9 +2,10 @@ import './App.css';
 import { useState } from 'react';
 import { app, database } from './firebaseConfig';
 import { 
+  createUserWithEmailAndPassword,
   getAuth,
-  // signInWithEmailAndPassword,
-  createUserWithEmailAndPassword 
+  signInWithEmailAndPassword,
+  // createUserWithEmailAndPassword 
 } from 'firebase/auth'; 
 
 import { collection, addDoc } from 'firebase/firestore';
@@ -27,20 +28,20 @@ function App() {
   }
 
   const handleSubmit = () => {
-  //   createUserWithEmailAndPassword(auth, data.email, data.password)
-  //   .then((response) => {
-  //     console.log(response.user)
-  //   })
-  //   .catch((err) => {
-  //     alert(err.message)
-  //   })
-
-
-    addDoc(dbInstance, data).then(() => {
-      alert('Data Sent')
-    }).catch((err) => {
+    signInWithEmailAndPassword(auth, data.email, data.password)
+    .then((response) => {
+      console.log(response.user)
+    })
+    .catch((err) => {
       alert(err.message)
     })
+
+
+    // addDoc(dbInstance, data).then(() => {
+    //   alert('Data Sent')
+    // }).catch((err) => {
+    //   alert(err.message)
+    // })
   }
 
   return (
